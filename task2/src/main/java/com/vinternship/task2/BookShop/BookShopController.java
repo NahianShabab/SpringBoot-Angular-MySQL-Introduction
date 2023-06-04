@@ -23,4 +23,8 @@ public class BookShopController {
         bookShopService.addBookShop(bookShop);
         return "Book Shop Added";
     }
+    @DeleteMapping("/deleteBook")
+    public @ResponseBody String deleteBook(@RequestParam long bookShopNumber,@RequestParam long bookId){
+        return "Book deleted from bookshop";
+    }
 }

@@ -26,4 +26,11 @@ public class BookShopService {
     public void addBookShop(BookShop bookShop){
         bookShopRepository.save(bookShop);
     }
+
+    public void deleteBook(long bookShopNumber,long bookId){
+        BookShop bookShop=bookShopRepository.findById(bookShopNumber).get();
+        Book book=bookRepository.findById(bookId).get();
+        bookShop.getBooks().remove(book);
+        bookShopRepository.save(bookShop);
+    }
 }
