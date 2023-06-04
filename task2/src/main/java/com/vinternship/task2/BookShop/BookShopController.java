@@ -25,6 +25,7 @@ public class BookShopController {
     }
     @DeleteMapping("/deleteBook")
     public @ResponseBody String deleteBook(@RequestParam long bookShopNumber,@RequestParam long bookId){
+        bookShopService.deleteBook(bookShopNumber,bookId);
         return "Book deleted from bookshop";
     }
 }
