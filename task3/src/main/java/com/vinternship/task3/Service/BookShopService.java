@@ -1,16 +1,24 @@
 package com.vinternship.task3.Service;
 
 import com.vinternship.task3.Model.BookShop;
+import com.vinternship.task3.Repository.BookRepository;
 import com.vinternship.task3.Repository.BookShopRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import com.vinternship.task3.Model.Book;
 
+import java.util.Arrays;
 import java.util.Optional;
+import java.util.function.Consumer;
+
+import static java.util.Arrays.asList;
 
 @Service
 public class BookShopService {
     @Autowired
     private BookShopRepository bookShopRepository;
+    @Autowired
+    private BookService bookService;
     public Iterable<BookShop> getAllBookShops(){
         return bookShopRepository.findAll();
     }
@@ -38,5 +46,6 @@ public class BookShopService {
     public void deleteAllBookShops(){
         bookShopRepository.deleteAll();
     }
+
 }
 

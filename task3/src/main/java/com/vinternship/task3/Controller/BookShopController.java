@@ -1,5 +1,6 @@
 package com.vinternship.task3.Controller;
 
+import com.vinternship.task3.Model.Book;
 import com.vinternship.task3.Model.BookShop;
 import com.vinternship.task3.Service.BookShopService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -7,6 +8,7 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.Optional;
 
+@CrossOrigin(origins = "http://localhost:4200")
 @RestController
 @RequestMapping("/api/bookshops")
 public class BookShopController {
@@ -14,9 +16,8 @@ public class BookShopController {
     private BookShopService bookShopService;
 
     @PostMapping("")
-    public @ResponseBody String addBookShop(@RequestBody BookShop bookShop){
+    public void addBookShop(@RequestBody BookShop bookShop){
         bookShopService.addBookShop(bookShop);
-        return "BookShop Added";
     }
 
     @GetMapping("")
@@ -28,23 +29,19 @@ public class BookShopController {
     public @ResponseBody Optional<BookShop> getBookShopById(@PathVariable long id){
         return bookShopService.getBookShop(id);
     }
-
     @PutMapping("/{id}")
-    public @ResponseBody String updateBookShop(@PathVariable long id,@RequestBody BookShop bookShop){
+    public void updateBookShop(@PathVariable long id,@RequestBody BookShop bookShop){
         bookShopService.updateBookShop(bookShop,id);
-        return "BookShop Updated";
     }
 
     @DeleteMapping("/{id}")
-    public @ResponseBody String deleteBookShop(@PathVariable long id){
+    public void deleteBookShop(@PathVariable long id){
         bookShopService.deleteBookShop(id);
-        return "BookShop deleted";
     }
 
     @DeleteMapping("")
-    public @ResponseBody String deleteAllBookShops(){
+    public void deleteAllBookShops(){
         bookShopService.deleteAllBookShops();
-        return "All BookShops deleted";
     }
 
 
