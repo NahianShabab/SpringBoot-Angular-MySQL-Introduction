@@ -1,0 +1,17 @@
+.bookChipList{
+    display: flex;
+}
+
+.center {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-top: 20px;
+    margin-bottom: 20px;
+  }
+  
+  .mt-4 {
+    margin-top: 20px;
+  }
+  

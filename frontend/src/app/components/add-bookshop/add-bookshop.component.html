@@ -1,0 +1,44 @@
+<h1 class="form-title">Add a Book Shop</h1>
+<form [formGroup]="bookShopForm">
+    <div>
+        <mat-form-field>
+            <input matInput formControlName="title" placeholder="Title">
+            <mat-error *ngIf="bookShopForm.get('title')!.invalid || bookShopForm.get('title')!.touched">
+                Title is required.
+            </mat-error>
+        </mat-form-field>
+    </div>
+
+    <div>
+        <mat-form-field>
+            <input matInput formControlName="location" placeholder="Location">
+            <mat-error *ngIf="bookShopForm.get('location')!.invalid || bookShopForm.get('location')!.touched">
+                Location is required.
+            </mat-error>
+        </mat-form-field>
+    </div>
+
+    <div>
+        <mat-form-field>
+            <input matInput formControlName="contactNo" placeholder="Contact No.">
+            <mat-error *ngIf="bookShopForm.get('contactNo')!.invalid">
+                Contact No. is required.
+            </mat-error>
+        </mat-form-field>
+    </div>
+
+    <div>
+        <mat-form-field>
+            <input matInput formControlName="email" placeholder="Email">
+            <mat-error *ngIf="bookShopForm.get('email')!.invalid || bookShopForm.get('email')!.touched">
+                E-mail is required.
+            </mat-error>
+        </mat-form-field>
+    </div>
+    <table>
+        <tr>
+            <td><button class="btn btn-success" mat-button [disabled]="bookShopForm.invalid"
+                    (click)="add()">Add</button></td>
+        </tr>
+    </table>
+</form>

@@ -1,0 +1,23 @@
+.header{
+    font-weight: bold;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.header-container {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+
+.rootContainer{
+    margin-left: 10px;  
+}
+
+.small-button{
+    padding: 5px 10px;
+}

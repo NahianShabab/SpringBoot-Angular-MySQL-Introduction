@@ -1,0 +1,77 @@
+<ng-container *ngIf="bookShop" class="center">
+    <div class="center">
+        <h1><b>{{bookShop.title}}</b></h1>
+        <form [formGroup]="bookShopForm">
+            <div>
+                <mat-form-field>
+                    <input matInput formControlName="title" placeholder="Title">
+                    <mat-error *ngIf="bookShopForm.get('title')!.invalid || bookShopForm.get('title')!.touched">
+                        Title is required.
+                    </mat-error>
+                </mat-form-field>
+            </div>
+
+            <div>
+                <mat-form-field>
+                    <input matInput formControlName="location" placeholder="Location">
+                    <mat-error *ngIf="bookShopForm.get('location')!.invalid || bookShopForm.get('location')!.touched">
+                        Location is required.
+                    </mat-error>
+                </mat-form-field>
+            </div>
+
+            <div>
+                <mat-form-field>
+                    <input matInput formControlName="contactNo" placeholder="Contact Number">
+                    <mat-error *ngIf="bookShopForm.get('contactNo')!.invalid || bookShopForm.get('contactNo')!.touched">
+                        Contact Number is required.
+                    </mat-error>
+                </mat-form-field>
+            </div>
+
+            <div>
+                <mat-form-field>
+                    <input matInput formControlName="email" placeholder="E-mail">
+                    <mat-error *ngIf="bookShopForm.get('email')!.invalid || bookShopForm.get('email')!.touched">
+                        Email is required.
+                    </mat-error>
+                </mat-form-field>
+            </div>
+        </form>
+        <div>
+            <mat-form-field>
+                <mat-chip-list class="bookChipList">
+                    <mat-chip *ngFor="let book of addedBooks" [removable]="true" (removed)="removeFromAddedBooks(book)">
+                        {{book.title}}
+                        <mat-icon matChipRemove>cancel</mat-icon>
+                    </mat-chip>
+                </mat-chip-list>
+            </mat-form-field>
+        </div>
+        <div>
+            <mat-form-field>
+                <mat-label>Add Books</mat-label>
+                <mat-select (click)="loadAddBooks()" (selectionChange)="addToAddedBooks($event.value)">
+                    <!-- <div *ngFor="let book of addAbleBooks">
+                        <mat-option value="book">{{book.title}}</mat-option>
+                    </div> -->
+                    <mat-option *ngFor="let book of addAbleBooks" [value]="book">{{book.title}}</mat-option>
+                </mat-select>
+            </mat-form-field>
+        </div>
+        <table style="border-collapse: separate; border-spacing: 10px;">
+            <tr>
+                <td><button class="btn btn-primary" mat-button [disabled]="bookShopForm.invalid"
+                        (click)="updateBookShop()">Update</button></td>
+                <td><button class="btn btn-danger" mat-button [disabled]="bookShopForm.invalid"
+                        (click)="deleteBookShop()">Delete</button></td>
+            </tr>
+        </table>
+    </div>
+    <h2 class="center"><b>Books available in {{bookShop.title}}:</b></h2>
+    <div class="row mb-2 background">
+        <div class="col-md-2" *ngFor="let book of bookShop.books">
+            <app-show-book [book]="book" (bookSelectEvent)="bookSelected(book)"></app-show-book>
+        </div>
+    </div>
+</ng-container>

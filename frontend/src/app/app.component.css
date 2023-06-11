@@ -1,0 +1,33 @@
+.header {
+    background-color: #283c54; /* Adjust the color as desired */
+    background-image: url("src\assets\banner.jpg");
+    padding: 20px;
+    color: white;
+  }
+  
+  .header-title {
+    margin: 0;
+    font-size: 24px;
+    font-weight: bolder;
+  }
+  
+  .header-nav ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+  }
+  
+  .header-nav ul li {
+    display: inline;
+    margin-right: 10px; /* Adjust the margin as needed */
+  }
+  
+  .header-nav ul li a {
+    color: white;
+    text-decoration: none;
+  }
+  
+  .header-nav ul li a:hover {
+    text-decoration: underline;
+  }
+  

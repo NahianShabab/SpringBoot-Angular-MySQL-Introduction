@@ -1,0 +1,92 @@
+.card {
+    transition: transform 0.2s; /* Animation */
+    margin: 1px;
+    height: 250px;
+    margin-bottom: 2em; 
+    width:210px;
+    text-align: center;
+  }
+  .card-body{
+    width: inherit;
+    height: inherit;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+  }
+  .card:hover .card-title{
+    color:#EF4A23;
+  }
+
+
+  
+  .title-container{
+    height: 100px;
+    width: inherit;
+  }
+  
+  .card-title{
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-weight: bold;
+    font-size:x-large;
+    color: white;
+  }
+
+  .card-info {
+    visibility: hidden;
+    color: white;
+    border-radius: 15px;
+    width: inherit; /* Adjust the desired width */
+    height: 100px; /* Adjust the desired height */
+    object-fit: fill;
+    max-width: 100%;
+    max-height: 100%;
+  }
+
+  .card:hover .card-info{
+    visibility: visible;
+    background-color: rgba(255,255,255,0.2);
+  }
+  
+
+
+  .card:hover {
+    transform: scale(
+      1.1 
+    ); /* (150% zoom - Note: if the zoom is too large, it will go outside of the viewport) */
+  }
+  .card-img-top {
+    width: inherit;
+    height: inherit;
+    max-width: 100%;
+    max-height: 100%;
+    position: relative;
+    object-fit:fill;
+    padding: 0px;
+  }
+  .card-head{
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+
+  }
+  
+  .price{
+    font-size: large;
+    font-weight: bold;
+    
+  }
+
+  .publisher{
+    font-size: medium;
+    font-weight: bold;
+  }
+
+  .genre{
+    font-size: small;
+    font-weight: bold;
+  }
+  
+  

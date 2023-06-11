@@ -1,0 +1,15 @@
+<!-- <button (click)="openEditDialogue()">Click</button> -->
+
+<div class="rootContainer">
+    <div class="header-container">
+        <h1 class="header">All Books</h1>
+        <button class="btn btn-primary" (click)="openAddDialogue()"><i class="bi bi-plus-lg"></i></button>  
+    </div>
+    
+    <div class="row mb-2 background">
+        <div class="col-md-2" *ngFor="let book of filteredBooks">
+            <app-show-book [book]="book" (bookSelectEvent)="bookSelected(book)"></app-show-book>
+        </div>
+    </div>
+    
+</div>
